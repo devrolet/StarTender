@@ -87,8 +87,18 @@ function resultsDelegation(e) {
                 // Displays single recipe in a modal
                ui.displaySingleRecipe(recipe.recipe.drinks[0]);
             })
-}
+    }
 
+    // When favorites button is clicked
+    if(e.target.classList.contains('favorite-btn')) {
+        if(e.target.classList.contains('is-favorite')) {
+            e.target.classList.remove('is-favorite');
+            e.target.textContent = '+';
+        } else {
+            e.target.classList.add('is-favorite');
+            e.target.textContent = '-';
+        }
+    }
 }
 
 // Document Ready
