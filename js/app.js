@@ -5,6 +5,8 @@ const ui = new UI(),
 
 // Event Listeners
 function eventListeners() {
+    // Document Ready
+    document.addEventListener('DOMContentLoaded', documentReady);
     
     // Add event listener when form is submitted
     const searchForm = document.querySelector('#search-form');
@@ -46,7 +48,10 @@ function getCocktails(e) {
                 break;
             case 'ingredient':
                 serverResponse = cocktail.getDrinksByIngredient(searchTerm);
-                break; 
+                break;
+            case 'category':
+                serverResponse = cocktail.getDrinkByCategory(searchTerm);
+                break;
         }
 
         ui.clearResults();
@@ -81,4 +86,14 @@ function resultsDelegation(e) {
             })
 }
 
+}
+
+// Document Ready
+function documentReady() {
+
+    // Select the search category select
+    const searchCategory = document.querySelector('.search-category');
+    if(searchCategory) {
+        ui.displayCategories();
+    }
 }
