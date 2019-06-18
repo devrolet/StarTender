@@ -46,6 +46,7 @@ class UI {
                 </div>
             `;
         })
+        this.isFavorite();
     }
 
     // Displays drinks with ingredients
@@ -89,6 +90,7 @@ class UI {
             </div>
             `;
         })
+        this.isFavorite();
     }
 
     // Prints the ingredients and measurements
@@ -156,5 +158,55 @@ class UI {
     clearResults() {
         const resultsDiv = document.querySelector('#results');
         resultsDiv.innerHTML = '';
+    }
+
+    // Displays favorites from storage
+    displayFavorites(favorites) {
+        const favoritesTable = document.querySelector('#favorites tbody');
+
+        favorites.forEach(drink => {
+            const tr = document.createElement('tr');
+
+            tr.innerHTML = `
+                <td>
+                    <img src="${drink.image}" alt="${drink.name}" width="100">
+                </td>
+                <td>${drink.name}</td>
+                <td>
+                    <a href="#" data-toggle="modal" data-target="#recipe" data-id="${drink.id}" class="btn btn-success get-recipe">
+                        View
+                    </a>
+                </td>
+                <td>
+                <a href="#" data-target="#recipe" data-id="${drink.id}" class="btn btn-danger remove-recipe">
+                    Remove
+                </a>
+            </td>
+            `;
+
+            favoritesTable.appendChild(tr);
+        })
+    }
+
+    // Remove single favorite from dom
+    removeFavorite(element) {
+        element.remove();
+    }
+
+    // Add a class when cocktail is favorite
+    isFavorite() {
+        const drinks = cocktailDB.getFromDB();
+
+        drinks.forEach(drink => {
+            // Destructuring the id
+            let {id} = drink;
+
+            // Select the favorites
+            let favoriteDrink = document.querySelector(`[data-id="${id}"]`);
+            if(favoriteDrink) {
+                favoriteDrink.classList.add('is-favorite');
+                favoriteDrink.textContent = '-';
+            }
+        })
     }
 }
