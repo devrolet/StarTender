@@ -27,6 +27,7 @@ thead {
     font-size: 22px;
     padding-left: 10px;
     color: #29ABE0;
+    line-height: 7px;
 }
 
 .is-favorite {
@@ -50,4 +51,13 @@ h1 {
 }
 footer p{
     color:white!important;
+}
+
+.badge-pill {
+    padding: 7px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
 }

@@ -18,8 +18,8 @@ class UI {
                     option.value = category.strCategory.split(' ').join('_');
 
                     document.querySelector('#search').appendChild(option);
-                })
-            })
+                });
+            });
     }
 
     // Displays the cocktails without ingredient
@@ -36,7 +36,7 @@ class UI {
             resultsDiv.innerHTML += `
                 <div class="col-md-4">
                     <div class="card my-3">
-                        <button type="button" data-id="${drink.idDrink}" class="favorite-btn btn btn-outline-info">+</button>
+                        <button type="button" data-id="${drink.idDrink}" class="favorite-btn btn btn-danger-info">+</button>
                         <img class="card-img-top" src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
                         <div class="card-body">
                             <h2 class="card-title text-center">${drink.strDrink}</h2>
@@ -99,10 +99,10 @@ class UI {
         let ingredients = [];
         for(let i = 1; i < 16; i++) {
             const ingredientMeasure = {};
-            if( drink[`strIngredient${i}`] !== '') {
+            if(typeof drink[`strIngredient${i}`] !== 'undefined' && drink[`strIngredient${i}`] !== null) {
                 ingredientMeasure.ingredient = drink[`strIngredient${i}`];
                 ingredientMeasure.measure = drink[`strMeasure${i}`];
-                ingredients.push(ingredientMeasure);
+                ingredients.push(ingredientMeasure);   
             }
             
         }
@@ -111,8 +111,8 @@ class UI {
         ingredients.forEach(ingredient => {
             ingredientsTemplate += `
             <li class="list-group-item">${ingredient.ingredient} - ${ingredient.measure}</li>
-            `
-        })
+            `;
+        });
         return ingredientsTemplate;
     }
 
