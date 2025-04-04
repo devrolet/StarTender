@@ -1,6 +1,24 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#content {
+    flex: 1;
+}
+
 .navbar-brand {
     font-size: 1.6rem;
 }
+
 .sitename {
     color:white;
     font-family: 'Raleway', sans-serif;
@@ -58,6 +76,5 @@ footer p{
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
+    position: relative;
 }

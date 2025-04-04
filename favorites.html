@@ -10,67 +10,67 @@
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-            <a class="navbar-brand text-uppercase" href="index.html">
-                <h1 class="sitename">STAR<span>TENDER</span> </h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Cocktail Name</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ingredient.html">Ingredient</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="category.html">Category</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="filter-alcohol.html">Alcohol / Non Alcohol</a>
-                        </li>
-                    </ul>
-            </div>
-
-            <div class="dropdown">
-                <a href="favorites.html" class="btn btn-danger">
-                       My Favorites
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+                <a class="navbar-brand text-uppercase" href="index.html">
+                    <h1 class="sitename">STAR<span>TENDER</span> </h1>
                 </a>
-            </div>
-    </div>
-</nav>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Cocktail Name</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="ingredient.html">Ingredient</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="category.html">Category</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="filter-alcohol.html">Alcohol / Non Alcohol</a>
+                            </li>
+                        </ul>
+                </div>
 
-<div id="content" class="mt-5">
-    <div class="container">
-        <div class="row justify-content-center">
-                <div class="jumbotron col-12 col-md-10">
-                    <h1 class="text-center mb-4">
+                <div class="dropdown">
+                    <a href="favorites.html" class="btn btn-danger">
                         My Favorites
-                    </h1>
-                    <div class="row">
-                        <div class="col-12">
-                                <table id="favorites" class="table table-light">
-                                    <thead class="bg-danger">
-                                        <tr>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">View</th>
-                                            <th scope="col">Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                        </div>
-                    </div>
+                    </a>
                 </div>
         </div>
-    </div>
-</div> <!--#content-->
+    </nav>
 
+    <div id="content" class="mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                    <div class="jumbotron col-12 col-md-10">
+                        <h1 class="text-center mb-4">
+                            My Favorites
+                        </h1>
+                        <div class="row">
+                            <div class="col-12">
+                                    <table id="favorites" class="table table-light">
+                                        <thead class="bg-danger">
+                                            <tr>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">View</th>
+                                                <th scope="col">Remove</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div> <!--#content-->
+</div>
 <div class="modal fade" id="recipe" tabindex="-1" role="dialog"  aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
