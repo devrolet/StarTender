@@ -1,67 +1,48 @@
 class CocktailAPI{
+    // Helper function to refactor duplicate code
+    async _fetchData(endpoint) {
+        const baseUrl = 'https://www.thecocktaildb.com/api/json/v1/1/';
+        const response = await fetch(`${baseUrl}${endpoint}`);
+        return await response.json();
+    }
+
     async getDrinksByName(name) {
         // Search by name
-        const apiResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${name}`);
-        // returns a json response
-        const cocktails = await apiResponse.json();
-
-        return {
-            cocktails
-        }
+        const cocktails = await this._fetchData(`/search.php?s=${name}`);
+        return { cocktails }
     }
 
     // Get recipes by ingredients
     async getDrinksByIngredient(ingredient) {
         // Search by ingredient
-        const apiResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
-        // Wait for response then return JSON
-        const cocktails = await apiResponse.json();
-        return {
-            cocktails
-        }
+        const cocktails = await this._fetchData(`/filter.php?i=${ingredient}`);
+        return { cocktails }
     }
 
     // get single recipe
     async getSingleRecipe(id) {
         // Search by ingredient
-        const apiResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-        // Wait for response then return JSON
-        const recipe = await apiResponse.json();
-        return {
-            recipe
-        }
+        const recipe = await this._fetchData(`lookup.php?i=${id}`);
+        return { recipe }
     }
 
     // Retrieves all the categories from the REST API
     async getCategories() {
-        const apiResponse = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
-        // Wait for the response and return JSON
-        const categories = await apiResponse.json();
-
-        return {
-            categories
-        }
+        const categories = await this._fetchData('/list.php?c=list');
+        return { categories }
     }
 
     // Get Drinks by Category
     async getDrinkByCategory(category) {
         // Search by category
-        const apiResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${category}`);
-        // Wait for response then return JSON
-        const cocktails = await apiResponse.json();
-        return {
-            cocktails
-        }
+        const cocktails = await this._fetchData(`/filter.php?c=${category}`);
+        return { cocktails }
     }
 
     // Get alcohol or non-alcohol drinks
     async getDrinksByAlcohol(term) {
         // Search by alcohol or non-alcohol
-        const apiResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${term}`);
-        // Wait for response then return JSON
-        const cocktails = await apiResponse.json();
-        return {
-            cocktails
-        }
+        const cocktails = await this._fetchData(`/filter.php?a=${term}`);
+        return { cocktails }
     }
 }
